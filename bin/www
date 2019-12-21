@@ -70,7 +70,7 @@ function onError(error) {
       process.exit(1);
       break;
     case 'EADDRINUSE':
-      console.error(bind + ' is already in use');
+      console.error(bind + ' 端口正在被使用...');
       process.exit(1);
       break;
     default:
