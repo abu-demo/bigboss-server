@@ -5,13 +5,13 @@ let sql_map = {
         login: 'SELECT  id, name, password, role, sign, logo, education, contact, web FROM `user` where id = ? limit 1;'
     },
     share: {
-        get: 'SELECT id, title, summary, author, author_id, time, discuss FROM `share` order by id desc limit 0,8;',
         sum_share: 'SELECT count(*) FROM `share`;',
         more: 'SELECT id, title, summary, author, author_id, time, discuss FROM `share` order by id desc limit ',
     },
     feedback: {
-        get: 'SELECT id, name, time, text FROM `feedback` order by id desc limit 10;',
-        insert_comment: 'INSERT INTO `feedback` VALUES(0, ?, ?, ?);',
+        insert_comment: 'INSERT INTO `feedback` VALUES(0, ?, ?, ?, ?);',
+        more: 'SELECT * FROM `feedback` order by id desc limit ',
+        del: 'DELETE FROM `feedback` WHERE id = ? limit 1;',
     },
     detail: {
         get_artical: 'SELECT * FROM `share` WHERE ID = ? limit 1;',

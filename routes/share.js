@@ -4,13 +4,6 @@ const query = require('../utils/mysql')
 
 router.prefix('/share')
 
-// 获取文章
-router.get('/', async (ctx, next) => {
-  await query($sql.share.get).then(res => {
-    ctx.body = res
-  })
-})
-
 // 获取 更多 文章
 router.get('/more', async (ctx, next) => {
   let params = ctx.request.query;
