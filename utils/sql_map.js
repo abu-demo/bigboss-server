@@ -5,7 +5,7 @@ let sql_map = {
         login: 'SELECT  id, name, password, role, sign, logo, education, contact, web FROM `user` where id = ? limit 1;'
     },
     share: {
-        get: 'SELECT id, title, summary, author, author_id, time, discuss FROM `share` order by id desc limit 4 , 4;',
+        get: 'SELECT id, title, summary, author, author_id, time, discuss FROM `share` order by id desc limit 0,4;',
         sum_share: 'SELECT count(*) FROM `share`;',
         more: 'SELECT id, title, summary, author, author_id, time, discuss FROM `share` order by id desc limit ',
     },

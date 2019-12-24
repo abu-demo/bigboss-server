@@ -22,6 +22,7 @@ let con_pool = function (sql, values) {
             } else {
                 console.log(`数据库连接成功`);
                 connection.query(sql, values, function (error, results, fields) {
+                    console.log(sql);
                     if (error) {
                         console.log(`SQL语句执行失败`);
                         reject(error)
