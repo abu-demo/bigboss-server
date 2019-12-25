@@ -8,7 +8,13 @@ router.prefix('/user')
 router.get('/', async (ctx, next) => {
     let param = ctx.request.query.id;
     await query($sql.user.personal, param).then(res => {
-        ctx.body = res
+        if (res.length == 0) {
+            // 账号密码不匹配
+            ctx.status = 404;
+            ctx.body = '文章不存在！';
+        } else {
+            ctx.body = res
+        }
     })
 })
 
