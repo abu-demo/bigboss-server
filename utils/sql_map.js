@@ -15,7 +15,7 @@ let sql_map = {
     },
     detail: {
         get_artical: 'SELECT * FROM `share` WHERE ID = ? limit 1;',
-        get_comment: 'SELECT * FROM `share_comment` WHERE share_id = ? order by id desc;',
+        get_comment: 'SELECT * FROM `share_comment` WHERE share_id = ? order by id desc limit ',
         insert_comment: 'INSERT INTO `share_comment` VALUES(0, ?, ?, ?, ?, ?);',
         delete_comment: 'DELETE FROM `share_comment` WHERE id = ? limit 1;',
         delete_article: 'DELETE FROM `share` WHERE id = ? limit 1;'

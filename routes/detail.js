@@ -20,8 +20,8 @@ router.get('/', async (ctx, next) => {
 
 // 获取 评论
 router.get('/comment', async (ctx, next) => {
-    let param = ctx.request.query.id
-    await query($sql.detail.get_comment, param).then(res => {
+    let params = ctx.request.query;
+    await query(`${$sql.detail.get_comment} ${params[1]}, ${params[2]};`, params[0]).then(res => {
         ctx.body = res
     })
 })
