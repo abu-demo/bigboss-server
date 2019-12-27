@@ -11,4 +11,11 @@ router.post('/article', async (ctx, next) => {
   })
 })
 
+router.post('/active', async (ctx, next) => {
+  let params = ctx.request.body;
+  await query($sql.publish.active, params).then(res => {
+    ctx.body = res
+  })
+})
+
 module.exports = router

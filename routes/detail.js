@@ -50,4 +50,18 @@ router.get('/delete_article', async (ctx, next) => {
     })
 })
 
+// 获取活动
+router.get('/active', async (ctx, next) => {
+    let param = ctx.request.query.id
+    await query($sql.detail.get_active, param).then(res => {
+        if (res.length == 0) {
+            // 账号密码不匹配
+            ctx.status = 404;
+            ctx.body = '文章不存在！';
+        } else {
+            ctx.body = res
+        }
+    })
+})
+
 module.exports = router
