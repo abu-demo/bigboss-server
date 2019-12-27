@@ -24,6 +24,9 @@ let sql_map = {
     publish: {
         article: 'INSERT INTO `share` VALUES (0, ?, ?, ?, ?, 0, ?, ?);',
         active: 'INSERT INTO `active` VALUES (0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);'
+    },
+    active: {
+        more: 'SELECT id, title, date, time, address, poster FROM `active` order by id desc limit ',
     }
 }
 
