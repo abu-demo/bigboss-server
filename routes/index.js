@@ -11,4 +11,5 @@ module.exports = function (app) {
     app.use(detail.routes(), detail.allowedMethods())
     app.use(feedback.routes(), feedback.allowedMethods())
     app.use(active.routes(), active.allowedMethods())
+    app.use(user.routes(), user.allowedMethods())
 }

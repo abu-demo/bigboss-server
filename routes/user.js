@@ -11,7 +11,7 @@ router.get('/', async (ctx, next) => {
         if (res.length == 0) {
             // 账号密码不匹配
             ctx.status = 404;
-            ctx.body = '文章不存在！';
+            ctx.body = '用户不存在！';
         } else {
             ctx.body = res
         }
