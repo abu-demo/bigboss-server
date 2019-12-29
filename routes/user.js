@@ -1,6 +1,7 @@
 const router = require('koa-router')()
 const $sql = require('../utils/sql_map')
 const query = require('../utils/mysql')
+const fs = require('fs')
 
 router.prefix('/user')
 
@@ -16,6 +17,22 @@ router.get('/', async (ctx, next) => {
             ctx.body = res
         }
     })
+})
+
+// 上传头像
+router.post('/upload', async (ctx, next) => {
+    console.log(ctx.request.query);
+    console.log(ctx.request.body);
+    const reader = fs.createReadStream(file['image']['path']);
+    let file_path = 'image/user/logo' + `/${files['image']['name']}`;
+    let remote_file_path = `http://39.107.234.105:8088/img/user/logo` + `/${files['image']['name']}`;
+    const upStream = fs.createWriteSteam(file_path);
+    reader.pipe(upStream);
+    return ctx.body = {
+        url: remote_file_path,
+        message: '头像上传成功！',
+        cc: 0
+    }
 })
 
 // 注册
