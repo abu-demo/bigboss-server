@@ -1,8 +1,8 @@
 let sql_map = {
     user: {
-        personal: 'SELECT  id, name, role, sign, logo, education, contact, web FROM `user` where id = ? limit 1;',
-        register: 'INSERT INTO `user` VALUES(0, ?, ?, ?, ?, ?, ?, ?, ?, ?);',
-        login: 'SELECT  id, name, password, role, sign, logo, education, contact, web FROM `user` where id = ? limit 1;'
+        personal: 'SELECT  id, name, role, sign, logo, publish FROM `user` where id = ? limit 1;',
+        register: 'INSERT INTO `user` VALUES(0, ?, ?, ?, ?, ?, ?, ?);',
+        login: 'SELECT  id, name, password, role, sign, logo, publish FROM `user` where id = ? limit 1;'
     },
     share: {
         sum_share: 'SELECT count(*) FROM `share`;',
