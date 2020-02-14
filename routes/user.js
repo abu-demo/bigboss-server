@@ -58,4 +58,20 @@ router.post('/login', async (ctx, next) => {
     })
 })
 
+// 更改 个签
+router.post('/sign', async (ctx, next) => {
+    let params = ctx.request.body;
+    await query($sql.user.sign, params).then(res => {
+        ctx.body = res
+    })
+})
+
+// 更改 公告
+router.post('/publish', async (ctx, next) => {
+    let params = ctx.request.body;
+    await query($sql.user.publish, params).then(res => {
+        ctx.body = res
+    })
+})
+
 module.exports = router

@@ -2,7 +2,9 @@ let sql_map = {
     user: {
         personal: 'SELECT  id, name, role, sign, logo, publish FROM `user` where id = ? limit 1;',
         register: 'INSERT INTO `user` VALUES(0, ?, ?, ?, ?, ?, ?, ?);',
-        login: 'SELECT  id, name, password, role, sign, logo, publish FROM `user` where id = ? limit 1;'
+        login: 'SELECT  id, name, password, role, sign, logo, publish FROM `user` where id = ? limit 1;',
+        sign: 'UPDATE `user` SET sign = ? WHERE id = ? limit 1;',
+        publish: 'UPDATE `user` SET publish = ? WHERE id = ? limit 1;',
     },
     share: {
         sum_share: 'SELECT count(*) FROM `share`;',
