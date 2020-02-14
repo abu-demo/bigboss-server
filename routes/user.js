@@ -19,22 +19,6 @@ router.get('/', async (ctx, next) => {
     })
 })
 
-// 上传头像
-router.post('/upload', async (ctx, next) => {
-    console.log(ctx.request.query);
-    console.log(ctx.request.body);
-    const reader = fs.createReadStream(file['image']['path']);
-    let file_path = 'image/user/logo' + `/${files['image']['name']}`;
-    let remote_file_path = `http://39.107.234.105:8088/img/user/logo` + `/${files['image']['name']}`;
-    const upStream = fs.createWriteSteam(file_path);
-    reader.pipe(upStream);
-    return ctx.body = {
-        url: remote_file_path,
-        message: '头像上传成功！',
-        cc: 0
-    }
-})
-
 // 注册
 router.post('/register', async (ctx, next) => {
     let params = ctx.request.body;
@@ -72,6 +56,13 @@ router.post('/publish', async (ctx, next) => {
     await query($sql.user.publish, params).then(res => {
         ctx.body = res
     })
+})
+
+// 更改 头像
+router.post('/logo', async (ctx, next) => {
+    let file = ctx.request.files;
+    console.log(file);
+    ctx.body = "path";
 })
 
 module.exports = router
