@@ -1,7 +1,7 @@
 const router = require('koa-router')()
 const $sql = require('../utils/sql_map')
 const query = require('../utils/mysql')
-const fs = require('fs')
+const uploadImg = require('../uploadImg')
 
 router.prefix('/user')
 
@@ -60,9 +60,11 @@ router.post('/publish', async (ctx, next) => {
 
 // 更改 头像
 router.post('/logo', async (ctx, next) => {
-    let file = ctx.request.files;
+    // 上传单个文件
+    let file = ctx.request.files.file; // 获取上传文件
     console.log(file);
-    ctx.body = "path";
+    let res = uploadImg.logo(file) ? "上传成功！" : "上传失败！";
+    return ctx.body = res;
 })
 
 module.exports = router
