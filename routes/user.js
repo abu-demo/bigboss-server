@@ -64,6 +64,7 @@ router.post('/logo', async (ctx, next) => {
     let file = ctx.request.files.file; // 获取上传文件
     console.log(file);
     let res = uploadImg.logo(file) ? "上传成功！" : "上传失败！";
+    // 修改数据库用户的logo地址指向 或者根据id获取logo的url 就不用存指向了.. 
     return ctx.body = res;
 })
 
